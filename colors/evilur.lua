@@ -3,21 +3,70 @@ vim.cmd('syntax reset')
 vim.o.termguicolors = true
 vim.g.colors_name = 'evilur'
 
-local c = require('EvilurTheme.colors')
+local c = {
+        pink             = os.getenv('COLOR_PINK'),
+        pink_bright      = os.getenv('COLOR_PINK_BRIGHT'),
+        red              = os.getenv('COLOR_RED'),
+        red_bright       = os.getenv('COLOR_RED_BRIGHT'),
+        orange           = os.getenv('COLOR_ORANGE'),
+        orange_bright    = os.getenv('COLOR_ORANGE_BRIGHT'),
+        yellow           = os.getenv('COLOR_YELLOW'),
+        yellow_bright    = os.getenv('COLOR_YELLOW_BRIGHT'),
+        green            = os.getenv('COLOR_GREEN'),
+        green_bright     = os.getenv('COLOR_GREEN_BRIGHT'),
+        cyan             = os.getenv('COLOR_CYAN'),
+        cyan_bright      = os.getenv('COLOR_CYAN_BRIGHT'),
+        blue             = os.getenv('COLOR_BLUE'),
+        blue_bright      = os.getenv('COLOR_BLUE_BRIGHT'),
+        dark_blue        = os.getenv('COLOR_DARK_BLUE'),
+        dark_blue_right  = os.getenv('COLOR_DARK_BLUE_RIGHT'),
+        purple           = os.getenv('COLOR_PURPLE'),
+        purple_bright    = os.getenv('COLOR_PURPLE_BRIGHT'),
+        black            = os.getenv('COLOR_BLACK'),
+        grey_dark        = os.getenv('COLOR_GREY_DARK'),
+        grey             = os.getenv('COLOR_GREY'),
+        grey_lighter     = '#303240',
+        grey_light       = os.getenv('COLOR_GREY_LIGHT'),
+        white            = '#f8f8f8',
+        white_bright     = '#ffffff',
+        comment          = os.getenv('COLOR_COMMENT')
+}
 local set = vim.api.nvim_set_hl
 
 set(0, 'Added', {})
-set(0, '@attribute.builtin', {})
-set(0, '@attribute', {})
+
+-- Attribute
+set(0, '@attribute', { fg = c.pink })
+set(0, '@attribute.builtin', { fg = c.pink })
+
+-- Constant
+set(0, '@constant', { fg = c.red })
+set(0, '@constant.builtin', { fg = c.red })
+set(0, 'Constant', { fg = c.red })
 
 -- Boolean
 set(0, '@boolean', { fg = c.orange_bright })
 set(0, 'Boolean', { fg = c.orange_bright })
 
+-- Number
+set(0, '@number', { fg = c.cyan })
+set(0, '@number.float', { fg = c.cyan })
+set(0, 'Number', { fg = c.cyan })
+
+-- String
+set(0, '@string', { fg = c.green })
+set(0, '@string.escape', { fg = c.cyan })
+set(0, '@string.regexp', { fg = c.yellow })
+set(0, '@string.special', { fg = c.green, italic = true })
+set(0, '@string.special.url', { bg = c.red })
+set(0, 'String', { fg = c.green })
+
+-- Character
+set(0, '@character', { fg = c.green })
+set(0, '@character.special', { fg = c.cyan })
+set(0, 'Character', { fg = c.green })
+
 set(0, 'Changed', {})
-set(0, '@character', {})
-set(0, 'Character', {})
-set(0, '@character.special', {})
 set(0, 'ColorColumn', {})
 set(0, '@comment.error', {})
 
@@ -31,11 +80,6 @@ set(0, '@comment.warning', {})
 set(0, 'ComplMatchIns', {})
 set(0, 'Conceal', {})
 set(0, 'Conditional', {})
-
--- Constant
-set(0, '@constant', { fg = c.red })
-set(0, '@constant.builtin', { fg = c.red })
-set(0, 'Constant', { fg = c.red })
 
 set(0, '@constructor', {})
 
@@ -94,7 +138,6 @@ set(0, 'DiffText', {})
 set(0, 'Directory', { fg = c.blue })
 set(0, 'EndOfBuffer', { fg = c.comment })
 set(0, 'Error', {})
-set(0, 'ErrorMsg', {})
 set(0, 'Exception', {})
 set(0, 'FloatBorder', {})
 set(0, 'Float', {})
@@ -106,9 +149,9 @@ set(0, 'FoldColumn', {})
 set(0, 'Folded', {})
 
 -- Function
-set(0, '@function.builtin', { fg = c.pink_bright })
-set(0, '@function', { fg = c.pink_bright })
-set(0, 'Function', { fg = c.pink_bright })
+set(0, '@function.builtin', { fg = c.red })
+set(0, '@function', { fg = c.red })
+set(0, 'Function', { fg = c.red })
 
 set(0, 'Ignore', {})
 set(0, 'Include', {})
@@ -167,19 +210,12 @@ set(0, '@markup.strikethrough', {})
 set(0, '@markup.strong', {})
 set(0, '@markup.underline', {})
 set(0, 'MatchParen', {})
-set(0, 'ModeMsg', {})
 set(0, '@module.builtin', {})
 set(0, '@module', {})
-set(0, 'MoreMsg', {})
-set(0, 'MsgArea', {})
-set(0, 'MsgSeparator', {})
 set(0, 'NonText', {})
 set(0, 'Normal', { fg = c.white, bg = c.grey })
 set(0, 'NormalFloat', {})
 set(0, 'NormalNC', {})
-set(0, '@number', {})
-set(0, 'Number', {})
-set(0, '@number.float', {})
 set(0, 'NvimAnd', {})
 set(0, 'NvimArrow', {})
 set(0, 'NvimAssignment', {})
@@ -337,9 +373,9 @@ set(0, 'Removed', {})
 set(0, 'Repeat', {})
 
 -- Search
-set(0, 'Search', { background = c.grey_light })
-set(0, 'IncSearch', { fg = c.white_bright, background = c.red_bright })
-set(0, 'CurSearch', { fg = c.white_bright, background = c.red_bright })
+set(0, 'Search', { bg = c.grey_light })
+set(0, 'IncSearch', { fg = c.white_bright, bg = c.red_bright })
+set(0, 'CurSearch', { fg = c.white_bright, bg = c.red_bright })
 
 set(0, 'SignColumn', {})
 set(0, 'SnippetTabstop', {})
@@ -364,14 +400,6 @@ set(0, 'StatusLineTermNC', {})
 
 set(0, 'StorageClass', {})
 
--- String
-set(0, '@string', { fg = c.green })
-set(0, '@string.escape', { fg = c.orange })
-set(0, '@string.regexp', { fg = c.yellow })
-set(0, '@string.special', { fg = c.green, bold = true })
-set(0, '@string.special.url', { bg = c.red })
-set(0, 'String', { fg = c.green })
-
 set(0, 'Structure', {})
 set(0, 'Substitute', {})
 set(0, 'TabLine', {})
@@ -393,20 +421,20 @@ set(0, 'Type', { fg = c.blue_bright })
 set(0, 'Underlined', {})
 
 -- Variable
-set(0, '@variable', { fg = c.yellow })
-set(0, '@variable.builtin', { fg = c.yellow, bold = true })
-set(0, '@variable.parameter.builtin', { fg = c.yellow, bold = true })
-set(0, 'Identifier', { fg = c.yellow })
-set(0, 'NvimIdentifier', { fg = c.yellow })
-set(0, 'NvimIdentifierKey', { fg = c.yellow })
-set(0, 'NvimIdentifierName', { fg = c.yellow })
-set(0, 'NvimIdentifierScopeDelimiter', { fg = c.yellow })
-set(0, 'NvimIdentifierScope', { fg = c.yellow })
-set(0, 'NvimInvalidIdentifier', { fg = c.yellow })
-set(0, 'NvimInvalidIdentifierKey', { fg = c.yellow })
-set(0, 'NvimInvalidIdentifierName', { fg = c.yellow })
-set(0, 'NvimInvalidIdentifierScopeDelimiter', { fg = c.yellow })
-set(0, 'NvimInvalidIdentifierScope', { fg = c.yellow })
+set(0, '@variable', { fg = c.green })
+set(0, '@variable.builtin', { fg = c.green, bold = true })
+set(0, '@variable.parameter.builtin', { fg = c.green, bold = true })
+set(0, 'Identifier', { fg = c.green })
+set(0, 'NvimIdentifier', {})
+set(0, 'NvimIdentifierKey', {})
+set(0, 'NvimIdentifierName', {})
+set(0, 'NvimIdentifierScopeDelimiter', {})
+set(0, 'NvimIdentifierScope', {})
+set(0, 'NvimInvalidIdentifier', {})
+set(0, 'NvimInvalidIdentifierKey', {})
+set(0, 'NvimInvalidIdentifierName', {})
+set(0, 'NvimInvalidIdentifierScopeDelimiter', {})
+set(0, 'NvimInvalidIdentifierScope', {})
 
 set(0, 'VertSplit', {})
 
@@ -416,7 +444,14 @@ set(0, 'Visual', {  bg = c.grey_light })
 set(0, 'VisualNC', { bg = c.grey_light })
 set(0, 'VisualNOS', {})
 
-set(0, 'WarningMsg', {})
+-- Message
+set(0, 'MsgArea', { fg = c.white })
+set(0, 'MsgSeparator', {})
+set(0, 'ErrorMsg', { fg = c.red })
+set(0, 'WarningMsg', { fg = c.yellow, bold = true })
+set(0, 'ModeMsg', { fg = c.white })
+set(0, 'MoreMsg', {})
+
 set(0, 'Whitespace', {})
 set(0, 'WildMenu', {})
 set(0, 'WinBar', {})
