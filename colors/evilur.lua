@@ -58,7 +58,7 @@ set(0, 'String', { fg = c.green })
 set(0, '@string', { link = 'String' })
 set(0, '@string.escape', { fg = c.cyan })
 set(0, '@string.regexp', { fg = c.yellow })
-set(0, '@string.special', { fg = c.green, italic = true })
+set(0, '@string.special', { fg = c.cyan })
 set(0, '@string.special.url', {})
 
 -- Character
@@ -355,7 +355,7 @@ set(0, 'NvimUnaryOperator', {})
 set(0, 'NvimUnaryPlus', {})
 
 -- Operator
-set(0, 'Operator', { fg = c.pink_bright })
+set(0, 'Operator', { fg = c.white })
 set(0, '@operator', { link = 'Operator' })
 
 set(0, 'PmenuExtra', {})
@@ -376,7 +376,7 @@ set(0, '@property', { fg = c.cyan })
 
 -- Punctuation
 set(0, '@punctuation', { fg = c.white })
-set(0, '@punctuation.special', {})
+set(0, '@punctuation.special', { link = '@punctuation' })
 
 set(0, 'Question', {})
 set(0, 'QuickFixLine', {})
@@ -436,8 +436,8 @@ set(0, 'Underlined', {})
 -- Variable
 set(0, 'Identifier', { fg = c.green })
 set(0, '@variable', { link = 'Identifier' })
-set(0, '@variable.builtin', { fg = c.green, bold = true })
-set(0, '@variable.parameter.builtin', { fg = c.green, bold = true })
+set(0, '@variable.builtin', { fg = c.green, italic = true })
+set(0, '@variable.parameter.builtin', { fg = c.green, underline = true })
 set(0, 'NvimIdentifier', {})
 set(0, 'NvimIdentifierKey', {})
 set(0, 'NvimIdentifierName', {})
@@ -470,3 +470,15 @@ set(0, 'WildMenu', {})
 set(0, 'WinBar', {})
 set(0, 'WinBarNC', {})
 set(0, 'WinSeparator', {})
+
+-- Git commit
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+    pattern = 'COMMIT_EDITMSG',
+    callback = function()
+        -- First line longer than 50
+        vim.fn.matchadd('Comment', [[\%1l\%>50c.]])
+
+        -- Any line longer than 72
+        vim.fn.matchadd('Comment', [[\%>72c.]])
+    end
+})
