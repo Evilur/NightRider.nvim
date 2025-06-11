@@ -3,66 +3,73 @@ vim.cmd('syntax reset')
 vim.o.termguicolors = true
 vim.g.colors_name = 'evilur'
 
-local c = {
-        pink             = '#ff52e9',
-        pink_bright      = '#ff70f1',
-        red              = '#ff4064',
-        red_bright       = '#ff5c7b',
-        orange           = '#ff8147',
-        orange_bright    = '#ff9161',
-        yellow           = '#f3ff70',
-        yellow_bright    = '#f7ff9e',
-        green            = '#50fa7b',
-        green_bright     = '#69ff94',
-        cyan             = '#00d0ff',
-        cyan_bright      = '#5cd0ff',
-        blue             = '#297fff',
-        blue_bright      = '#408dff',
-        dark_blue        = '#476aff',
-        dark_blue_bright = '#5c7bff',
-        purple           = '#9252ff',
-        purple_bright    = '#9f66ff',
-        black            = '#000000',
-        grey_dark        = '#1a1b26',
-        grey             = '#282a36',
-        grey_lighter     = '#303240',
-        grey_light       = '#44475a',
-        grey_comment     = '#6272a4',
-        white            = '#f8f8f8',
-        white_bright     = '#ffffff',
-}
+-- Primary colors
+local CRUST      = '#181926'
+local MANTLE     = '#1e2030'
+local BASE       = '#24273a'
+local BASE_LIGHT = '#31354f'
+local SURFACE0   = '#363a4f'
+local SURFACE1   = '#494d64'
+local SURFACE2   = '#5b6078'
+local OVERLAY0   = '#6e738d'
+local OVERLAY1   = '#8087a2'
+local OVERLAY2   = '#939ab7'
+local SUBTEXT0   = '#a5adcb'
+local SUBTEXT1   = '#b8c0e0'
+local SUBTEXT2   = '#cad3f5'
+local COMMENT    = '#6272a4'
+local TEXT       = '#f2f4fd'
+
+-- Secondary colors
+local PINK          = '#ff52e9'
+local PINK_BRIGHT   = '#ff70f1'
+local RED           = '#ff4064'
+local RED_BRIGHT    = '#ff5c7b'
+local GREEN         = '#50fa7b'
+local GREEN_BRIGHT  = '#69ff94'
+local YELLOW        = '#f3ff70'
+local YELLOW_BRIGHT = '#f7ff9e'
+local CYAN          = '#00d0ff'
+local CYAN_BRIGHT   = '#5cd0ff'
+local BLUE          = '#297fff'
+local BLUE_BRIGHT   = '#408dff'
+local PURPLE        = '#9252ff'
+local PURPLE_BRIGHT = '#9f66ff'
+
+-- Shortcut for set_hl function
 local set = vim.api.nvim_set_hl
 
-set(0, 'Normal', { fg = c.white, bg = c.grey })
+-- Normal text
+set(0, 'Normal', { fg = TEXT, bg = BASE })
 
 -- Attribute
-set(0, '@attribute', { fg = c.pink })
+set(0, '@attribute', { fg = PINK })
 set(0, '@attribute.builtin', { link = '@attribute' })
 
 -- Constant
-set(0, 'Constant', { fg = c.red })
+set(0, 'Constant', { fg = RED })
 set(0, '@constant', { link = 'Constant' })
 set(0, '@constant.builtin', { link = 'Constant' })
 
 -- Boolean
-set(0, 'Boolean', { fg = c.orange_bright })
+set(0, 'Boolean', { fg = ORANGE_BRIGHT })
 set(0, '@boolean', { link = 'Boolean' })
 
 -- Number
-set(0, 'Number', { fg = c.cyan })
+set(0, 'Number', { fg = CYAN })
 set(0, '@number', { link = 'Number' })
 set(0, '@number.float', { link = 'Number' })
 
 -- String
-set(0, 'String', { fg = c.green })
+set(0, 'String', { fg = GREEN })
 set(0, '@string', { link = 'String' })
-set(0, '@string.escape', { fg = c.cyan })
-set(0, '@string.regexp', { fg = c.yellow })
-set(0, '@string.special', { fg = c.cyan })
+set(0, '@string.escape', { fg = CYAN })
+set(0, '@string.regexp', { fg = YELLOW })
+set(0, '@string.special', { fg = CYAN })
 set(0, '@string.special.url', {})
 
 -- Character
-set(0, 'Character', { fg = c.green })
+set(0, 'Character', { fg = GREEN })
 set(0, '@character', { link = 'Character' })
 set(0, '@character.special', { link = 'Character' })
 
@@ -70,7 +77,7 @@ set(0, 'ColorColumn', {})
 set(0, '@comment.error', {})
 
 -- Comment
-set(0, 'Comment', { fg = c.grey_comment })
+set(0, 'Comment', { fg = COMMENT })
 set(0, '@comment', { link = 'Comment' })
 set(0, '@comment.note', {})
 set(0, '@comment.todo', {})
@@ -86,9 +93,9 @@ set(0, '@constructor', {})
 set(0, 'Cursor', {})
 set(0, 'CursorIM', {})
 set(0, 'CursorColumn', {})
-set(0, 'CursorLine', { bg = c.grey_lighter })
+set(0, 'CursorLine', { bg = BASE_LIGHT })
 set(0, 'CursorLineFold', {})
-set(0, 'CursorLineNr', { fg = c.grey_comment, bg = c.grey_lighter })
+set(0, 'CursorLineNr', { fg = COMMENT, bg = BASE_LIGHT })
 set(0, 'CursorLineSign', {})
 
 set(0, 'Debug', {})
@@ -128,9 +135,9 @@ set(0, 'DiagnosticVirtualTextWarn', {})
 set(0, 'DiagnosticWarn', {})
 
 -- Diff
-set(0, 'Added', { fg = c.green, bold = true })
-set(0, 'Changed', { fg = c.yellow, bold = true })
-set(0, 'Removed', { fg = c.red, bold = true })
+set(0, 'Added', { fg = GREEN, bold = true })
+set(0, 'Changed', { fg = YELLOW, bold = true })
+set(0, 'Removed', { fg = RED, bold = true })
 set(0, 'DiffAdd', { link = 'Added' })
 set(0, 'DiffChange', { link = 'Changed' })
 set(0, 'DiffDelete', { link = 'Removed' })
@@ -153,7 +160,7 @@ set(0, 'FoldColumn', {})
 set(0, 'Folded', {})
 
 -- Function
-set(0, 'Function', { fg = c.red })
+set(0, 'Function', { fg = RED })
 set(0, '@function.builtin', { link = 'Function' })
 set(0, '@function', { link = 'Function' })
 
@@ -217,7 +224,7 @@ set(0, '@markup.underline', {})
 set(0, 'MatchParen', {})
 
 -- Module
-set(0, '@module', { fg = c.pink })
+set(0, '@module', { fg = PINK })
 set(0, '@module.builtin', { link = '@module' })
 
 set(0, 'NonText', {})
@@ -355,7 +362,7 @@ set(0, 'NvimUnaryOperator', {})
 set(0, 'NvimUnaryPlus', {})
 
 -- Operator
-set(0, 'Operator', { fg = c.white })
+set(0, 'Operator', { fg = TEXT })
 set(0, '@operator', { link = 'Operator' })
 
 set(0, 'PmenuExtra', {})
@@ -372,10 +379,10 @@ set(0, 'PreCondit', {})
 set(0, 'PreProc', {})
 
 -- Property
-set(0, '@property', { fg = c.cyan })
+set(0, '@property', { fg = CYAN })
 
 -- Punctuation
-set(0, '@punctuation', { fg = c.white })
+set(0, '@punctuation', { fg = TEXT })
 set(0, '@punctuation.special', { link = '@punctuation' })
 
 set(0, 'Question', {})
@@ -387,8 +394,8 @@ set(0, 'RedrawDebugRecompose', {})
 set(0, 'Repeat', {})
 
 -- Search
-set(0, 'Search', { bg = c.grey_light })
-set(0, 'IncSearch', { fg = c.white_bright, bg = c.red_bright })
+set(0, 'Search', { bg = SURFACE0 })
+set(0, 'IncSearch', { fg = TEXT, bg = RED_BRIGHT })
 set(0, 'CurSearch', { link = 'IncSearch' })
 
 set(0, 'SignColumn', {})
@@ -396,18 +403,18 @@ set(0, 'SnippetTabstop', {})
 set(0, 'SpecialChar', {})
 set(0, 'SpecialComment', {})
 set(0, 'Special', {})
-set(0, 'SpecialKey', { fg = c.red, bold = true })
+set(0, 'SpecialKey', { fg = RED, bold = true })
 set(0, 'SpellBad', {})
 set(0, 'SpellCap', {})
 set(0, 'SpellLocal', {})
 set(0, 'SpellRare', {})
 
 -- Keyword
-set(0, 'Statement', { fg = c.purple_bright })
+set(0, 'Statement', { fg = PURPLE_BRIGHT })
 set(0, '@keyword', { link = 'Statement' })
 
 -- Status Line
-set(0, 'StatusLine', { bg = c.grey_light })
+set(0, 'StatusLine', { bg = SURFACE1 })
 set(0, 'StatusLineNC', {})
 set(0, 'StatusLineTerm', {})
 set(0, 'StatusLineTermNC', {})
@@ -427,17 +434,17 @@ set(0, 'Todo', {})
 set(0, 'Typedef', {})
 
 -- Type
-set(0, 'Type', { fg = c.blue_bright })
+set(0, 'Type', { fg = BLUE_BRIGHT })
 set(0, '@type', { link = 'Type' })
 set(0, '@type.builtin', { link = 'Type' })
 
 set(0, 'Underlined', {})
 
 -- Variable
-set(0, 'Identifier', { fg = c.green })
+set(0, 'Identifier', { fg = GREEN })
 set(0, '@variable', { link = 'Identifier' })
-set(0, '@variable.builtin', { fg = c.green, italic = true })
-set(0, '@variable.parameter.builtin', { fg = c.green, underline = true })
+set(0, '@variable.builtin', { fg = GREEN, italic = true })
+set(0, '@variable.parameter.builtin', { fg = GREEN, underline = true })
 set(0, 'NvimIdentifier', {})
 set(0, 'NvimIdentifierKey', {})
 set(0, 'NvimIdentifierName', {})
@@ -453,13 +460,13 @@ set(0, 'VertSplit', {})
 
 -- Visual
 -- TODO: Check this after coloring all other elements
-set(0, 'Visual', {  bg = c.grey_light })
-set(0, 'VisualNC', { bg = c.grey_light })
+set(0, 'Visual', {  bg = SURFACE0 })
+set(0, 'VisualNC', { bg = SURFACE0 })
 set(0, 'VisualNOS', {})
 
 -- Message
-set(0, 'ErrorMsg', { fg = c.red })
-set(0, 'WarningMsg', { fg = c.yellow, bold = true })
+set(0, 'ErrorMsg', { fg = RED })
+set(0, 'WarningMsg', { fg = YELLOW, bold = true })
 set(0, 'ModeMsg', {})
 set(0, 'MoreMsg', {})
 set(0, 'MsgArea', {})
