@@ -4,21 +4,19 @@ vim.o.termguicolors = true
 vim.g.colors_name = 'evilur'
 
 -- Primary colors
-local CRUST      = '#181926'
-local MANTLE     = '#1e2030'
-local BASE       = '#24273a'
-local BASE_LIGHT = '#31354f'
-local SURFACE0   = '#363a4f'
-local SURFACE1   = '#494d64'
-local SURFACE2   = '#5b6078'
-local OVERLAY0   = '#6e738d'
-local OVERLAY1   = '#8087a2'
-local OVERLAY2   = '#939ab7'
-local SUBTEXT0   = '#a5adcb'
-local SUBTEXT1   = '#b8c0e0'
-local SUBTEXT2   = '#cad3f5'
-local COMMENT    = '#6272a4'
-local TEXT       = '#f2f4fd'
+local CRUST    = '#181926'
+local MANTLE   = '#1e2030'
+local BASE     = '#24273a'
+local SURFACE0 = '#353955'
+local SURFACE1 = '#484e74'
+local SURFACE2 = '#5a6191'
+local OVERLAY0 = '#6e76a5'
+local OVERLAY1 = '#8188b1'
+local OVERLAY2 = '#949abd'
+local SUBTEXT0 = '#a4a8c6'
+local SUBTEXT1 = '#b7bad2'
+local SUBTEXT2 = '#caccde'
+local TEXT     = '#f2f4fd'
 
 -- Secondary colors
 local PINK          = '#ff52e9'
@@ -77,7 +75,7 @@ set(0, 'ColorColumn', {})
 set(0, '@comment.error', {})
 
 -- Comment
-set(0, 'Comment', { fg = COMMENT })
+set(0, 'Comment', { fg = SURFACE2 })
 set(0, '@comment', { link = 'Comment' })
 set(0, '@comment.note', {})
 set(0, '@comment.todo', {})
@@ -93,9 +91,9 @@ set(0, '@constructor', {})
 set(0, 'Cursor', {})
 set(0, 'CursorIM', {})
 set(0, 'CursorColumn', {})
-set(0, 'CursorLine', { bg = BASE_LIGHT })
+set(0, 'CursorLine', { bg = SURFACE0 })
 set(0, 'CursorLineFold', {})
-set(0, 'CursorLineNr', { fg = COMMENT, bg = BASE_LIGHT })
+set(0, 'CursorLineNr', { fg = SURFACE2, bg = SURFACE0 })
 set(0, 'CursorLineSign', {})
 
 set(0, 'Debug', {})
@@ -434,7 +432,7 @@ set(0, 'Todo', {})
 set(0, 'Typedef', {})
 
 -- Type
-set(0, 'Type', { fg = BLUE_BRIGHT })
+set(0, 'Type', { fg = BLUE })
 set(0, '@type', { link = 'Type' })
 set(0, '@type.builtin', { link = 'Type' })
 
@@ -443,7 +441,7 @@ set(0, 'Underlined', {})
 -- Variable
 set(0, 'Identifier', { fg = GREEN })
 set(0, '@variable', { link = 'Identifier' })
-set(0, '@variable.builtin', { fg = GREEN, italic = true })
+set(0, '@variable.builtin', { fg = GREEN, bold = true })
 set(0, '@variable.parameter.builtin', { fg = GREEN, underline = true })
 set(0, 'NvimIdentifier', {})
 set(0, 'NvimIdentifierKey', {})
