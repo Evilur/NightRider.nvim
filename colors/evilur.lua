@@ -7,15 +7,15 @@ vim.g.colors_name = 'evilur'
 local CRUST    = '#181926'
 local MANTLE   = '#1e2030'
 local BASE     = '#24273a'
-local SURFACE0 = '#353955'
-local SURFACE1 = '#484e74'
-local SURFACE2 = '#5a6191'
-local OVERLAY0 = '#6e76a5'
-local OVERLAY1 = '#8188b1'
-local OVERLAY2 = '#949abd'
-local SUBTEXT0 = '#a4a8c6'
-local SUBTEXT1 = '#b7bad2'
-local SUBTEXT2 = '#caccde'
+local GREY_900 = '#353955'
+local GREY_800 = '#484e74'
+local GREY_700 = '#5a6191'
+local GREY_600 = '#6e76a5'
+local GREY_500 = '#8188b1'
+local GREY_400 = '#949abd'
+local GREY_300 = '#a4a8c6'
+local GREY_200 = '#b7bad2'
+local GREY_100 = '#caccde'
 local TEXT     = '#f2f4fd'
 
 -- Secondary colors
@@ -75,7 +75,7 @@ set(0, 'ColorColumn', {})
 set(0, '@comment.error', {})
 
 -- Comment
-set(0, 'Comment', { fg = SURFACE2 })
+set(0, 'Comment', { fg = GREY_700 })
 set(0, '@comment', { link = 'Comment' })
 set(0, '@comment.note', {})
 set(0, '@comment.todo', {})
@@ -91,9 +91,9 @@ set(0, '@constructor', {})
 set(0, 'Cursor', {})
 set(0, 'CursorIM', {})
 set(0, 'CursorColumn', {})
-set(0, 'CursorLine', { bg = SURFACE0 })
+set(0, 'CursorLine', { bg = GREY_900 })
 set(0, 'CursorLineFold', {})
-set(0, 'CursorLineNr', { fg = SURFACE2, bg = SURFACE0 })
+set(0, 'CursorLineNr', { fg = GREY_700, bg = GREY_900 })
 set(0, 'CursorLineSign', {})
 
 set(0, 'Debug', {})
@@ -392,7 +392,7 @@ set(0, 'RedrawDebugRecompose', {})
 set(0, 'Repeat', {})
 
 -- Search
-set(0, 'Search', { bg = SURFACE0 })
+set(0, 'Search', { bg = GREY_900 })
 set(0, 'IncSearch', { fg = TEXT, bg = RED_BRIGHT })
 set(0, 'CurSearch', { link = 'IncSearch' })
 
@@ -412,7 +412,7 @@ set(0, 'Statement', { fg = PURPLE_BRIGHT })
 set(0, '@keyword', { link = 'Statement' })
 
 -- Status Line
-set(0, 'StatusLine', { bg = SURFACE1 })
+set(0, 'StatusLine', { bg = GREY_800 })
 set(0, 'StatusLineNC', {})
 set(0, 'StatusLineTerm', {})
 set(0, 'StatusLineTermNC', {})
@@ -458,8 +458,8 @@ set(0, 'VertSplit', {})
 
 -- Visual
 -- TODO: Check this after coloring all other elements
-set(0, 'Visual', {  bg = SURFACE0 })
-set(0, 'VisualNC', { bg = SURFACE0 })
+set(0, 'Visual', {  bg = GREY_900 })
+set(0, 'VisualNC', { bg = GREY_900 })
 set(0, 'VisualNOS', {})
 
 -- Message
