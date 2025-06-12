@@ -1,7 +1,18 @@
+------------------------------------
+-- Reset the old syntax highlight --
+------------------------------------
 vim.cmd('highlight clear')
 vim.cmd('syntax reset')
+
+--------------------------
+-- General Settings --
+--------------------------
 vim.o.termguicolors = true
 vim.g.colors_name = 'evilur'
+
+-------------------
+-- Color Palette --
+-------------------
 
 -- Primary colors
 local CRUST    = '#181926'
@@ -23,6 +34,8 @@ local PINK          = '#ff52e9'
 local PINK_BRIGHT   = '#ff70f1'
 local RED           = '#ff4064'
 local RED_BRIGHT    = '#ff5c7b'
+local ORANGE        = '#ff8147'
+local ORANGE_BRIGHT = '#ff9161'
 local GREEN         = '#50fa7b'
 local GREEN_BRIGHT  = '#69ff94'
 local YELLOW        = '#f3ff70'
@@ -34,11 +47,24 @@ local BLUE_BRIGHT   = '#408dff'
 local PURPLE        = '#9252ff'
 local PURPLE_BRIGHT = '#9f66ff'
 
--- Shortcut for set_hl function
+---------------
+-- Shortcuts --
+---------------
 local set = vim.api.nvim_set_hl
+
+------------
+-- Syntax --
+------------
 
 -- Normal text
 set(0, 'Normal', { fg = TEXT, bg = BASE })
+
+-- Comment
+set(0, 'Comment', { fg = GREY_700 })
+set(0, '@comment', { link = 'Comment' })
+set(0, '@comment.note', {})
+set(0, '@comment.todo', {})
+set(0, '@comment.warning', {})
 
 -- Attribute
 set(0, '@attribute', { fg = PINK })
@@ -71,15 +97,45 @@ set(0, 'Character', { fg = GREEN })
 set(0, '@character', { link = 'Character' })
 set(0, '@character.special', { link = 'Character' })
 
+-- Module
+set(0, '@module', { fg = PINK })
+set(0, '@module.builtin', { link = '@module' })
+
+-- Function
+set(0, 'Function', { fg = RED })
+set(0, '@function.builtin', { link = 'Function' })
+set(0, '@function', { link = 'Function' })
+
+-- Operator
+set(0, 'Operator', { fg = TEXT })
+set(0, '@operator', { link = 'Operator' })
+
+-- Property
+set(0, '@property', { fg = CYAN })
+
+-- Punctuation
+set(0, '@punctuation', { fg = TEXT })
+set(0, '@punctuation.special', { link = '@punctuation' })
+
+-- Keyword
+set(0, 'Statement', { fg = PURPLE_BRIGHT })
+set(0, '@keyword', { link = 'Statement' })
+
+-- Tag
+set(0, '@tag', { fg = RED })
+set(0, '@tag.builtin', { fg = RED, bold = true })
+
+-- Type
+set(0, 'Type', { fg = BLUE })
+set(0, '@type', { link = 'Type' })
+set(0, '@type.builtin', { link = 'Type' })
+
+---------------
+-- Interface --
+---------------
+
 set(0, 'ColorColumn', {})
 set(0, '@comment.error', {})
-
--- Comment
-set(0, 'Comment', { fg = GREY_700 })
-set(0, '@comment', { link = 'Comment' })
-set(0, '@comment.note', {})
-set(0, '@comment.todo', {})
-set(0, '@comment.warning', {})
 
 set(0, 'ComplMatchIns', {})
 set(0, 'Conceal', {})
@@ -157,11 +213,6 @@ set(0, 'FloatTitle', {})
 set(0, 'FoldColumn', {})
 set(0, 'Folded', {})
 
--- Function
-set(0, 'Function', { fg = RED })
-set(0, '@function.builtin', { link = 'Function' })
-set(0, '@function', { link = 'Function' })
-
 set(0, 'Ignore', {})
 set(0, 'Include', {})
 
@@ -220,10 +271,6 @@ set(0, '@markup.strikethrough', {})
 set(0, '@markup.strong', {})
 set(0, '@markup.underline', {})
 set(0, 'MatchParen', {})
-
--- Module
-set(0, '@module', { fg = PINK })
-set(0, '@module.builtin', { link = '@module' })
 
 set(0, 'NonText', {})
 set(0, 'NormalFloat', {})
@@ -359,10 +406,6 @@ set(0, 'NvimUnaryMinus', {})
 set(0, 'NvimUnaryOperator', {})
 set(0, 'NvimUnaryPlus', {})
 
--- Operator
-set(0, 'Operator', { fg = TEXT })
-set(0, '@operator', { link = 'Operator' })
-
 set(0, 'PmenuExtra', {})
 set(0, 'PmenuExtraSel', {})
 set(0, 'Pmenu', {})
@@ -375,13 +418,6 @@ set(0, 'PmenuSel', {})
 set(0, 'PmenuThumb', {})
 set(0, 'PreCondit', {})
 set(0, 'PreProc', {})
-
--- Property
-set(0, '@property', { fg = CYAN })
-
--- Punctuation
-set(0, '@punctuation', { fg = TEXT })
-set(0, '@punctuation.special', { link = '@punctuation' })
 
 set(0, 'Question', {})
 set(0, 'QuickFixLine', {})
@@ -407,10 +443,6 @@ set(0, 'SpellCap', {})
 set(0, 'SpellLocal', {})
 set(0, 'SpellRare', {})
 
--- Keyword
-set(0, 'Statement', { fg = PURPLE_BRIGHT })
-set(0, '@keyword', { link = 'Statement' })
-
 -- Status Line
 set(0, 'StatusLine', { bg = GREY_800 })
 set(0, 'StatusLineNC', {})
@@ -423,18 +455,12 @@ set(0, 'Substitute', {})
 set(0, 'TabLine', {})
 set(0, 'TabLineFill', {})
 set(0, 'TabLineSel', {})
-set(0, '@tag.builtin', {})
-set(0, '@tag', {})
+
 set(0, 'Tag', {})
 set(0, 'TermCursor', {})
 set(0, 'Title', {})
 set(0, 'Todo', {})
 set(0, 'Typedef', {})
-
--- Type
-set(0, 'Type', { fg = BLUE })
-set(0, '@type', { link = 'Type' })
-set(0, '@type.builtin', { link = 'Type' })
 
 set(0, 'Underlined', {})
 
