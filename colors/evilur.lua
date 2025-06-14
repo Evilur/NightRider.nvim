@@ -30,22 +30,24 @@ local GREY_100 = '#caccde'
 local TEXT     = '#f2f4fd'
 
 -- Secondary colors
-local PINK          = '#ff52e9'
-local PINK_BRIGHT   = '#ff70f1'
-local RED           = '#ff4064'
-local RED_BRIGHT    = '#ff5c7b'
-local ORANGE        = '#ff8147'
-local ORANGE_BRIGHT = '#ff9161'
-local GREEN         = '#50fa7b'
-local GREEN_BRIGHT  = '#69ff94'
-local YELLOW        = '#f3ff70'
-local YELLOW_BRIGHT = '#f7ff9e'
-local CYAN          = '#00d0ff'
-local CYAN_BRIGHT   = '#5cd0ff'
-local BLUE          = '#297fff'
-local BLUE_BRIGHT   = '#408dff'
-local PURPLE        = '#9252ff'
-local PURPLE_BRIGHT = '#9f66ff'
+local PINK             = '#ff52e9'
+local PINK_BRIGHT      = '#ff70f1'
+local RED              = '#ff4064'
+local RED_BRIGHT       = '#ff5c7b'
+local ORANGE           = '#ff8147'
+local ORANGE_BRIGHT    = '#ff9161'
+local GREEN            = '#50fa7b'
+local GREEN_BRIGHT     = '#69ff94'
+local YELLOW           = '#f3ff70'
+local YELLOW_BRIGHT    = '#f7ff9e'
+local CYAN             = '#00d0ff'
+local CYAN_BRIGHT      = '#5cd0ff'
+local BLUE             = '#297fff'
+local BLUE_BRIGHT      = '#408dff'
+local DARK_BLUE        = '#476aff'
+local DARK_BLUE_BRIGHT = '#5c7bff'
+local PURPLE           = '#9252ff'
+local PURPLE_BRIGHT    = '#9f66ff'
 
 ---------------
 -- Shortcuts --
@@ -107,15 +109,15 @@ set(0, '@function.builtin', { link = 'Function' })
 set(0, '@function', { link = 'Function' })
 
 -- Operator
-set(0, 'Operator', { fg = TEXT })
+set(0, 'Operator', { fg = PURPLE, bold = true })
 set(0, '@operator', { link = 'Operator' })
 
 -- Property
 set(0, '@property', { fg = CYAN })
 
 -- Punctuation
-set(0, '@punctuation', { fg = TEXT })
-set(0, '@punctuation.special', { link = '@punctuation' })
+--set(0, '@punctuation', {})
+--set(0, '@punctuation.special', {})
 
 -- Keyword
 set(0, 'Statement', { fg = PURPLE_BRIGHT })
@@ -134,24 +136,21 @@ set(0, '@type.builtin', { link = 'Type' })
 -- Interface --
 ---------------
 
-set(0, 'ColorColumn', {})
-set(0, '@comment.error', {})
+-- Cursor
+set(0, 'Cursor', {})
+set(0, 'CursorColumn', { bg = GREY_900 })
+set(0, 'CursorLine', { bg = GREY_900 })
+set(0, 'CursorLineNr', { fg = GREY_700, bg = GREY_900 })
+set(0, 'CursorIM', { link = 'CursorLine' })
+set(0, 'CursorLineFold', { link = 'CursorLine' })
+set(0, 'CursorLineSign', { link = 'CursorLine' })
 
+set(0, 'ColorColumn', { bg = GREY_700 })
+set(0, '@comment.error', {})
 set(0, 'ComplMatchIns', {})
 set(0, 'Conceal', {})
 set(0, 'Conditional', {})
-
 set(0, '@constructor', {})
-
--- Cursor
-set(0, 'Cursor', {})
-set(0, 'CursorIM', {})
-set(0, 'CursorColumn', {})
-set(0, 'CursorLine', { bg = GREY_900 })
-set(0, 'CursorLineFold', {})
-set(0, 'CursorLineNr', { fg = GREY_700, bg = GREY_900 })
-set(0, 'CursorLineSign', {})
-
 set(0, 'Debug', {})
 set(0, 'Define', {})
 set(0, 'Delimiter', {})
@@ -170,11 +169,14 @@ set(0, 'DiagnosticSignHint', {})
 set(0, 'DiagnosticSignInfo', {})
 set(0, 'DiagnosticSignOk', {})
 set(0, 'DiagnosticSignWarn', {})
-set(0, 'DiagnosticUnderlineError', {})
+
+-- Underline diagnistic
+set(0, 'DiagnosticUnderlineError', { sp = RED, undercurl = true })
 set(0, 'DiagnosticUnderlineHint', {})
-set(0, 'DiagnosticUnderlineInfo', {})
+set(0, 'DiagnosticUnderlineInfo', { sp = CYAN, undercurl = true })
 set(0, 'DiagnosticUnderlineOk', {})
-set(0, 'DiagnosticUnderlineWarn', {})
+set(0, 'DiagnosticUnderlineWarn', { sp = ORANGE, undercurl = true })
+
 set(0, 'DiagnosticUnnecessary', {})
 set(0, 'DiagnosticVirtualLinesError', {})
 set(0, 'DiagnosticVirtualLinesHint', {})
@@ -406,19 +408,20 @@ set(0, 'NvimUnaryMinus', {})
 set(0, 'NvimUnaryOperator', {})
 set(0, 'NvimUnaryPlus', {})
 
+-- Pmenu
+set(0, 'Pmenu', { bg = MANTLE })
+set(0, 'PmenuSel', { bg = GREY_800 })
+set(0, 'PmenuSbar', { bg = CRUST })
+set(0, 'PmenuThumb', { bg = GREY_700 })
 set(0, 'PmenuExtra', {})
 set(0, 'PmenuExtraSel', {})
-set(0, 'Pmenu', {})
 set(0, 'PmenuKind', {})
 set(0, 'PmenuKindSel', {})
 set(0, 'PmenuMatch', {})
 set(0, 'PmenuMatchSel', {})
-set(0, 'PmenuSbar', {})
-set(0, 'PmenuSel', {})
-set(0, 'PmenuThumb', {})
+
 set(0, 'PreCondit', {})
 set(0, 'PreProc', {})
-
 set(0, 'Question', {})
 set(0, 'QuickFixLine', {})
 set(0, 'RedrawDebugClear', {})
