@@ -70,12 +70,12 @@ set(0, '@comment.warning', {})
 
 -- Attribute
 set(0, '@attribute', { fg = PINK })
-set(0, '@attribute.builtin', { link = '@attribute' })
+set(0, '@attribute.builtin', { fg = PINK, bold = true })
 
 -- Constant
 set(0, 'Constant', { fg = RED })
-set(0, '@constant', { link = 'Constant' })
-set(0, '@constant.builtin', { link = 'Constant' })
+set(0, '@constant', { fg = RED })
+set(0, '@constant.builtin', { fg = RED, bold = true })
 
 -- Boolean
 set(0, 'Boolean', { fg = ORANGE_BRIGHT })
@@ -88,11 +88,11 @@ set(0, '@number.float', { link = 'Number' })
 
 -- String
 set(0, 'String', { fg = GREEN })
-set(0, '@string', { link = 'String' })
+set(0, '@string', { fg = GREEN })
 set(0, '@string.escape', { fg = CYAN })
 set(0, '@string.regexp', { fg = YELLOW })
 set(0, '@string.special', { fg = CYAN })
-set(0, '@string.special.url', {})
+set(0, '@string.special.url', { fg = CYAN, underline = true })
 
 -- Character
 set(0, 'Character', { fg = GREEN })
@@ -101,12 +101,12 @@ set(0, '@character.special', { link = 'Character' })
 
 -- Module
 set(0, '@module', { fg = PINK })
-set(0, '@module.builtin', { link = '@module' })
+set(0, '@module.builtin', { fg = PINK, bold = true })
 
 -- Function
 set(0, 'Function', { fg = RED })
-set(0, '@function.builtin', { link = 'Function' })
-set(0, '@function', { link = 'Function' })
+set(0, '@function', { fg = RED })
+set(0, '@function.builtin', { fg = RED, bold = true })
 
 -- Operator
 set(0, 'Operator', { fg = PURPLE, bold = true })
@@ -116,8 +116,8 @@ set(0, '@operator', { link = 'Operator' })
 set(0, '@property', { fg = CYAN })
 
 -- Punctuation
---set(0, '@punctuation', {})
---set(0, '@punctuation.special', {})
+set(0, '@punctuation', { fg = TEXT })
+set(0, '@punctuation.special', { fg = TEXT, bold = true })
 
 -- Keyword
 set(0, 'Statement', { fg = PURPLE_BRIGHT })
@@ -129,8 +129,35 @@ set(0, '@tag.builtin', { fg = RED, bold = true })
 
 -- Type
 set(0, 'Type', { fg = BLUE })
-set(0, '@type', { link = 'Type' })
-set(0, '@type.builtin', { link = 'Type' })
+set(0, '@type', { fg = BLUE })
+set(0, '@type.builtin', { fg = BLUE, bold = true })
+
+-- Variable
+set(0, 'Identifier', { fg = GREEN })
+set(0, '@variable', { fg = GREEN })
+set(0, '@variable.builtin', { fg = GREEN, bold = true })
+set(0, '@variable.parameter.builtin', { fg = GREEN, bold = true })
+set(0, 'NvimIdentifier', {})
+set(0, 'NvimIdentifierKey', {})
+set(0, 'NvimIdentifierName', {})
+set(0, 'NvimIdentifierScopeDelimiter', {})
+set(0, 'NvimIdentifierScope', {})
+set(0, 'NvimInvalidIdentifier', {})
+set(0, 'NvimInvalidIdentifierKey', {})
+set(0, 'NvimInvalidIdentifierName', {})
+set(0, 'NvimInvalidIdentifierScopeDelimiter', {})
+set(0, 'NvimInvalidIdentifierScope', {})
+
+-- Markup
+set(0, '@markup', {})
+set(0, '@markup.heading', {})
+set(0, '@markup.heading.1.delimiter.vimdoc', {})
+set(0, '@markup.heading.2.delimiter.vimdoc', {})
+set(0, '@markup.italic', {})
+set(0, '@markup.link', {})
+set(0, '@markup.strikethrough', {})
+set(0, '@markup.strong', {})
+set(0, '@markup.underline', {})
 
 ---------------
 -- Interface --
@@ -140,7 +167,7 @@ set(0, '@type.builtin', { link = 'Type' })
 set(0, 'Cursor', {})
 set(0, 'CursorColumn', { bg = GREY_900 })
 set(0, 'CursorLine', { bg = GREY_900 })
-set(0, 'CursorLineNr', { fg = GREY_700, bg = GREY_900 })
+set(0, 'CursorLineNr', { fg = GREY_700, bg = GREY_900, bold = true })
 set(0, 'CursorIM', { link = 'CursorLine' })
 set(0, 'CursorLineFold', { link = 'CursorLine' })
 set(0, 'CursorLineSign', { link = 'CursorLine' })
@@ -224,7 +251,7 @@ set(0, 'Label', {})
 set(0, 'lCursor', {})
 
 -- Line Numbers
-set(0, 'LineNr', { link = 'Comment' })
+set(0, 'LineNr', { fg = GREY_700, bold = true })
 set(0, 'LineNrAbove', { link = 'LineNr' })
 set(0, 'LineNrBelow', { link = 'LineNr' })
 set(0, 'EndOfBuffer', { link = 'LineNr' })
@@ -263,17 +290,7 @@ set(0, '@lsp.type.type', {})
 set(0, '@lsp.type.typeParameter', {})
 set(0, '@lsp.type.variable', {})
 set(0, 'Macro', {})
-set(0, '@markup', {})
-set(0, '@markup.heading.1.delimiter.vimdoc', {})
-set(0, '@markup.heading.2.delimiter.vimdoc', {})
-set(0, '@markup.heading', {})
-set(0, '@markup.italic', {})
-set(0, '@markup.link', {})
-set(0, '@markup.strikethrough', {})
-set(0, '@markup.strong', {})
-set(0, '@markup.underline', {})
 set(0, 'MatchParen', {})
-
 set(0, 'NonText', {})
 set(0, 'NormalFloat', {})
 set(0, 'NormalNC', {})
@@ -464,24 +481,7 @@ set(0, 'TermCursor', {})
 set(0, 'Title', {})
 set(0, 'Todo', {})
 set(0, 'Typedef', {})
-
 set(0, 'Underlined', {})
-
--- Variable
-set(0, 'Identifier', { fg = GREEN })
-set(0, '@variable', { link = 'Identifier' })
-set(0, '@variable.builtin', { fg = GREEN, bold = true })
-set(0, '@variable.parameter.builtin', { fg = GREEN, underline = true })
-set(0, 'NvimIdentifier', {})
-set(0, 'NvimIdentifierKey', {})
-set(0, 'NvimIdentifierName', {})
-set(0, 'NvimIdentifierScopeDelimiter', {})
-set(0, 'NvimIdentifierScope', {})
-set(0, 'NvimInvalidIdentifier', {})
-set(0, 'NvimInvalidIdentifierKey', {})
-set(0, 'NvimInvalidIdentifierName', {})
-set(0, 'NvimInvalidIdentifierScopeDelimiter', {})
-set(0, 'NvimInvalidIdentifierScope', {})
 
 set(0, 'VertSplit', {})
 
