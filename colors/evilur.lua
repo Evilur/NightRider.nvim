@@ -516,3 +516,12 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
         vim.fn.matchadd('Comment', [[\%>72c.]])
     end
 })
+
+-- Nvim Tree
+set(0, 'NvimTreeFolderIcon', { fg = BLUE })
+vim.schedule(function()
+    set(0, 'DevIconLicense', { fg = YELLOW })
+    set(0, 'DevIconTxt', { fg = GREEN })
+    set(0, 'DevIconCPlusPlus', { fg = PINK_BRIGHT })
+    set(0, 'DevIconH', { fg = ORANGE })
+end)
