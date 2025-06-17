@@ -64,9 +64,11 @@ set(0, 'Normal', { fg = TEXT, bg = BASE })
 -- Comment
 set(0, 'Comment', { fg = GREY_700 })
 set(0, '@comment', { link = 'Comment' })
-set(0, '@comment.note', {})
-set(0, '@comment.todo', {})
-set(0, '@comment.warning', {})
+set(0, '@comment.note', { fg = GREEN })
+set(0, '@comment.todo', { fg = BLUE })
+set(0, '@comment.warning', { fg = ORANGE })
+set(0, '@comment.error', { fg = RED })
+set(0, '@lsp.type.comment', { link = 'Comment' })
 
 -- Attribute
 set(0, '@attribute', { fg = PINK })
@@ -74,7 +76,7 @@ set(0, '@attribute.builtin', { fg = PINK, bold = true })
 
 -- Constant
 set(0, 'Constant', { fg = RED })
-set(0, '@constant', { fg = RED })
+set(0, '@constant', { link = 'Constant' })
 set(0, '@constant.builtin', { fg = RED, bold = true })
 
 -- Boolean
@@ -88,11 +90,11 @@ set(0, '@number.float', { link = 'Number' })
 
 -- String
 set(0, 'String', { fg = GREEN })
-set(0, '@string', { fg = GREEN })
+set(0, '@string', { link = 'String' })
 set(0, '@string.escape', { fg = CYAN })
 set(0, '@string.regexp', { fg = YELLOW })
 set(0, '@string.special', { fg = CYAN })
-set(0, '@string.special.url', { fg = CYAN, underline = true })
+set(0, '@string.special.url', { fg = BLUE, undercurl = true })
 
 -- Character
 set(0, 'Character', { fg = GREEN })
@@ -100,12 +102,12 @@ set(0, '@character', { link = 'Character' })
 set(0, '@character.special', { link = 'Character' })
 
 -- Module
-set(0, '@module', { fg = PINK })
+set(0, '@module', { fg = PINK_BRIGHT })
 set(0, '@module.builtin', { fg = PINK, bold = true })
 
 -- Function
 set(0, 'Function', { fg = RED })
-set(0, '@function', { fg = RED })
+set(0, '@function', { link = 'Function' })
 set(0, '@function.builtin', { fg = RED, bold = true })
 
 -- Operator
@@ -120,7 +122,7 @@ set(0, '@punctuation', { fg = TEXT })
 set(0, '@punctuation.special', { fg = TEXT, bold = true })
 
 -- Keyword
-set(0, 'Statement', { fg = PURPLE_BRIGHT })
+set(0, 'Statement', { fg = PURPLE })
 set(0, '@keyword', { link = 'Statement' })
 
 -- Tag
@@ -128,15 +130,17 @@ set(0, '@tag', { fg = RED })
 set(0, '@tag.builtin', { fg = RED, bold = true })
 
 -- Type
-set(0, 'Type', { fg = BLUE })
-set(0, '@type', { fg = BLUE })
-set(0, '@type.builtin', { fg = BLUE, bold = true })
+set(0, 'Type', { fg = YELLOW })
+set(0, '@type', { link = 'Type' })
+set(0, '@type.builtin', { fg = YELLOW, bold = true })
 
 -- Variable
-set(0, 'Identifier', { fg = GREEN })
 set(0, '@variable', { fg = GREEN })
 set(0, '@variable.builtin', { fg = GREEN, bold = true })
 set(0, '@variable.parameter.builtin', { fg = GREEN, bold = true })
+
+-- Identifier
+set(0, 'Identifier', { fg = GREEN })
 set(0, 'NvimIdentifier', {})
 set(0, 'NvimIdentifierKey', {})
 set(0, 'NvimIdentifierName', {})
@@ -167,13 +171,12 @@ set(0, '@markup.underline', {})
 set(0, 'Cursor', {})
 set(0, 'CursorColumn', { bg = GREY_900 })
 set(0, 'CursorLine', { bg = GREY_900 })
-set(0, 'CursorLineNr', { fg = GREY_700, bg = GREY_900, bold = true })
-set(0, 'CursorIM', { link = 'CursorLine' })
-set(0, 'CursorLineFold', { link = 'CursorLine' })
-set(0, 'CursorLineSign', { link = 'CursorLine' })
+set(0, 'CursorLineNr', { link = 'LineNr' })
+set(0, 'CursorIM', {})
+set(0, 'CursorLineFold', {})
+set(0, 'CursorLineSign', {})
 
 set(0, 'ColorColumn', { bg = GREY_700 })
-set(0, '@comment.error', {})
 set(0, 'ComplMatchIns', {})
 set(0, 'Conceal', {})
 set(0, 'Conditional', {})
@@ -181,6 +184,18 @@ set(0, '@constructor', {})
 set(0, 'Debug', {})
 set(0, 'Define', {})
 set(0, 'Delimiter', {})
+
+----------------
+-- Diagnostic --
+----------------
+
+-- Underline
+set(0, 'DiagnosticUnderlineError', { sp = RED, undercurl = true })
+set(0, 'DiagnosticUnderlineHint', {})
+set(0, 'DiagnosticUnderlineInfo', { sp = CYAN, undercurl = true })
+set(0, 'DiagnosticUnderlineOk', {})
+set(0, 'DiagnosticUnderlineWarn', { sp = ORANGE, undercurl = true })
+
 set(0, 'DiagnosticDeprecated', {})
 set(0, 'DiagnosticError', {})
 set(0, 'DiagnosticFloatingError', {})
@@ -196,15 +211,10 @@ set(0, 'DiagnosticSignHint', {})
 set(0, 'DiagnosticSignInfo', {})
 set(0, 'DiagnosticSignOk', {})
 set(0, 'DiagnosticSignWarn', {})
+set(0, 'DiagnosticUnnecessary', { fg = GREY_600 })
+set(0, 'DiagnosticWarn', {})
 
--- Underline diagnistic
-set(0, 'DiagnosticUnderlineError', { sp = RED, undercurl = true })
-set(0, 'DiagnosticUnderlineHint', {})
-set(0, 'DiagnosticUnderlineInfo', { sp = CYAN, undercurl = true })
-set(0, 'DiagnosticUnderlineOk', {})
-set(0, 'DiagnosticUnderlineWarn', { sp = ORANGE, undercurl = true })
-
-set(0, 'DiagnosticUnnecessary', {})
+-- Virtual line
 set(0, 'DiagnosticVirtualLinesError', {})
 set(0, 'DiagnosticVirtualLinesHint', {})
 set(0, 'DiagnosticVirtualLinesInfo', {})
@@ -215,9 +225,10 @@ set(0, 'DiagnosticVirtualTextHint', {})
 set(0, 'DiagnosticVirtualTextInfo', {})
 set(0, 'DiagnosticVirtualTextOk', {})
 set(0, 'DiagnosticVirtualTextWarn', {})
-set(0, 'DiagnosticWarn', {})
 
--- Diff
+----------
+-- Diff --
+----------
 set(0, 'Added', { fg = GREEN, bold = true })
 set(0, 'Changed', { fg = YELLOW, bold = true })
 set(0, 'Removed', { fg = RED, bold = true })
@@ -267,7 +278,6 @@ set(0, 'LspReferenceText', {})
 set(0, 'LspReferenceWrite', {})
 set(0, 'LspSignatureActiveParameter', {})
 set(0, '@lsp.type.class', {})
-set(0, '@lsp.type.comment', {})
 set(0, '@lsp.type.decorator', {})
 set(0, '@lsp.type.enum', {})
 set(0, '@lsp.type.enumMember', {})
@@ -427,9 +437,9 @@ set(0, 'NvimUnaryPlus', {})
 
 -- Pmenu
 set(0, 'Pmenu', { bg = MANTLE })
-set(0, 'PmenuSel', { bg = GREY_800 })
+set(0, 'PmenuSel', { bg = DARK_BLUE })
 set(0, 'PmenuSbar', { bg = CRUST })
-set(0, 'PmenuThumb', { bg = GREY_700 })
+set(0, 'PmenuThumb', { bg = GREY_800 })
 set(0, 'PmenuExtra', {})
 set(0, 'PmenuExtraSel', {})
 set(0, 'PmenuKind', {})
@@ -438,7 +448,7 @@ set(0, 'PmenuMatch', {})
 set(0, 'PmenuMatchSel', {})
 
 set(0, 'PreCondit', {})
-set(0, 'PreProc', {})
+set(0, 'PreProc', { fg = PURPLE })
 set(0, 'Question', {})
 set(0, 'QuickFixLine', {})
 set(0, 'RedrawDebugClear', {})
@@ -448,7 +458,7 @@ set(0, 'RedrawDebugRecompose', {})
 set(0, 'Repeat', {})
 
 -- Search
-set(0, 'Search', { bg = GREY_900 })
+set(0, 'Search', { fg = TEXT, bg = GREY_800 })
 set(0, 'IncSearch', { fg = TEXT, bg = RED_BRIGHT })
 set(0, 'CurSearch', { link = 'IncSearch' })
 
@@ -517,11 +527,7 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
     end
 })
 
--- Nvim Tree
+---------------
+-- Nvim Tree --
+---------------
 set(0, 'NvimTreeFolderIcon', { fg = BLUE })
-vim.schedule(function()
-    set(0, 'DevIconLicense', { fg = YELLOW })
-    set(0, 'DevIconTxt', { fg = GREEN })
-    set(0, 'DevIconCPlusPlus', { fg = PINK_BRIGHT })
-    set(0, 'DevIconH', { fg = ORANGE })
-end)
