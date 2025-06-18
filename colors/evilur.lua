@@ -14,133 +14,99 @@ vim.g.colors_name = 'evilur'
 -- Color Palette --
 -------------------
 
--- Primary colors
-local CRUST    = '#181926'
-local MANTLE   = '#1e2030'
-local BASE     = '#24273a'
-local GREY_900 = '#353955'
-local GREY_800 = '#484e74'
-local GREY_700 = '#5a6191'
-local GREY_600 = '#6e76a5'
-local GREY_500 = '#8188b1'
-local GREY_400 = '#949abd'
-local GREY_300 = '#a4a8c6'
-local GREY_200 = '#b7bad2'
-local GREY_100 = '#caccde'
-local TEXT     = '#f2f4fd'
-
--- Secondary colors
-local PINK             = '#ff52e9'
-local PINK_BRIGHT      = '#ff70f1'
-local RED              = '#ff4064'
-local RED_BRIGHT       = '#ff5c7b'
-local ORANGE           = '#ff8147'
-local ORANGE_BRIGHT    = '#ff9161'
-local GREEN            = '#50fa7b'
-local GREEN_BRIGHT     = '#69ff94'
-local YELLOW           = '#f3ff70'
-local YELLOW_BRIGHT    = '#f7ff9e'
-local CYAN             = '#00d0ff'
-local CYAN_BRIGHT      = '#5cd0ff'
-local BLUE             = '#297fff'
-local BLUE_BRIGHT      = '#408dff'
-local DARK_BLUE        = '#476aff'
-local DARK_BLUE_BRIGHT = '#5c7bff'
-local PURPLE           = '#9252ff'
-local PURPLE_BRIGHT    = '#9f66ff'
-
 ---------------
 -- Shortcuts --
 ---------------
 local set = vim.api.nvim_set_hl
+local c = require('night-rider.color')
 
 ------------
 -- Syntax --
 ------------
 
 -- Normal text
-set(0, 'Normal', { fg = TEXT, bg = BASE })
+set(0, 'Normal', { fg = c.text, bg = c.base })
 
 -- Comment
-set(0, 'Comment', { fg = GREY_700 })
+set(0, 'Comment', { fg = c.grey_40 })
 set(0, '@comment', { link = 'Comment' })
-set(0, '@comment.note', { fg = GREEN })
-set(0, '@comment.todo', { fg = BLUE })
-set(0, '@comment.warning', { fg = ORANGE })
-set(0, '@comment.error', { fg = RED })
+set(0, '@comment.note', { fg = c.green })
+set(0, '@comment.todo', { fg = c.blue })
+set(0, '@comment.warning', { fg = c.orange })
+set(0, '@comment.error', { fg = c.red })
 set(0, '@lsp.type.comment', { link = 'Comment' })
 
 -- Attribute
-set(0, '@attribute', { fg = PINK })
-set(0, '@attribute.builtin', { fg = PINK, bold = true })
+set(0, '@attribute', { fg = c.pink })
+set(0, '@attribute.builtin', { fg = c.pink })
 
 -- Constant
-set(0, 'Constant', { fg = RED })
+set(0, 'Constant', { fg = c.red })
 set(0, '@constant', { link = 'Constant' })
-set(0, '@constant.builtin', { fg = RED, bold = true })
+set(0, '@constant.builtin', { fg = c.red })
 
 -- Boolean
-set(0, 'Boolean', { fg = ORANGE_BRIGHT })
+set(0, 'Boolean', { fg = c.orange_bright })
 set(0, '@boolean', { link = 'Boolean' })
 
 -- Number
-set(0, 'Number', { fg = CYAN })
+set(0, 'Number', { fg = c.cyan })
 set(0, '@number', { link = 'Number' })
 set(0, '@number.float', { link = 'Number' })
 
 -- String
-set(0, 'String', { fg = GREEN })
+set(0, 'String', { fg = c.green })
 set(0, '@string', { link = 'String' })
-set(0, '@string.escape', { fg = CYAN })
-set(0, '@string.regexp', { fg = YELLOW })
-set(0, '@string.special', { fg = CYAN })
-set(0, '@string.special.url', { fg = BLUE, undercurl = true })
+set(0, '@string.escape', { fg = c.cyan })
+set(0, '@string.regexp', { fg = c.yellow })
+set(0, '@string.special', { fg = c.cyan })
+set(0, '@string.special.url', { fg = c.blue, undercurl = true })
 
 -- Character
-set(0, 'Character', { fg = GREEN })
+set(0, 'Character', { fg = c.green })
 set(0, '@character', { link = 'Character' })
 set(0, '@character.special', { link = 'Character' })
 
 -- Module
-set(0, '@module', { fg = PINK_BRIGHT })
-set(0, '@module.builtin', { fg = PINK, bold = true })
+set(0, '@module', { fg = c.pink_bright })
+set(0, '@module.builtin', { fg = c.pink })
 
 -- Function
-set(0, 'Function', { fg = RED })
+set(0, 'Function', { fg = c.blue })
 set(0, '@function', { link = 'Function' })
-set(0, '@function.builtin', { fg = RED, bold = true })
+set(0, '@function.builtin', { link = 'Function' })
 
 -- Operator
-set(0, 'Operator', { fg = PURPLE, bold = true })
+set(0, 'Operator', { fg = c.purple_bright, bold = true })
 set(0, '@operator', { link = 'Operator' })
 
 -- Property
-set(0, '@property', { fg = CYAN })
+set(0, '@property', { fg = c.cyan })
 
 -- Punctuation
-set(0, '@punctuation', { fg = TEXT })
-set(0, '@punctuation.special', { fg = TEXT, bold = true })
+set(0, '@punctuation', { fg = c.text })
+set(0, '@punctuation.special', { fg = c.red, bold = true })
 
 -- Keyword
-set(0, 'Statement', { fg = PURPLE })
+set(0, 'Statement', { fg = c.purple })
 set(0, '@keyword', { link = 'Statement' })
 
 -- Tag
-set(0, '@tag', { fg = RED })
-set(0, '@tag.builtin', { fg = RED, bold = true })
+set(0, '@tag', { fg = c.red })
+set(0, '@tag.builtin', { fg = c.red })
 
 -- Type
-set(0, 'Type', { fg = YELLOW })
+set(0, 'Type', { fg = c.yellow })
 set(0, '@type', { link = 'Type' })
-set(0, '@type.builtin', { fg = YELLOW, bold = true })
+set(0, '@type.builtin', { link = 'Type' })
 
 -- Variable
-set(0, '@variable', { fg = GREEN })
-set(0, '@variable.builtin', { fg = GREEN, bold = true })
-set(0, '@variable.parameter.builtin', { fg = GREEN, bold = true })
+set(0, '@variable', { fg = c.red })
+set(0, '@variable.builtin', { link = '@variable' })
+set(0, '@variable.parameter.builtin', { link = '@variable' })
 
 -- Identifier
-set(0, 'Identifier', { fg = GREEN })
+set(0, 'Identifier', { fg = c.green })
 set(0, 'NvimIdentifier', {})
 set(0, 'NvimIdentifierKey', {})
 set(0, 'NvimIdentifierName', {})
@@ -169,14 +135,14 @@ set(0, '@markup.underline', {})
 
 -- Cursor
 set(0, 'Cursor', {})
-set(0, 'CursorColumn', { bg = GREY_900 })
-set(0, 'CursorLine', { bg = GREY_900 })
+set(0, 'CursorLine', { bg = c.grey_00 })
+set(0, 'CursorColumn', { link = 'CursorLine' })
 set(0, 'CursorLineNr', { link = 'LineNr' })
 set(0, 'CursorIM', {})
 set(0, 'CursorLineFold', {})
 set(0, 'CursorLineSign', {})
 
-set(0, 'ColorColumn', { bg = GREY_700 })
+set(0, 'ColorColumn', { link = 'CursorLine' })
 set(0, 'ComplMatchIns', {})
 set(0, 'Conceal', {})
 set(0, 'Conditional', {})
@@ -190,11 +156,11 @@ set(0, 'Delimiter', {})
 ----------------
 
 -- Underline
-set(0, 'DiagnosticUnderlineError', { sp = RED, undercurl = true })
+set(0, 'DiagnosticUnderlineError', { sp = c.red, undercurl = true })
 set(0, 'DiagnosticUnderlineHint', {})
-set(0, 'DiagnosticUnderlineInfo', { sp = CYAN, undercurl = true })
+set(0, 'DiagnosticUnderlineInfo', { sp = c.cyan, undercurl = true })
 set(0, 'DiagnosticUnderlineOk', {})
-set(0, 'DiagnosticUnderlineWarn', { sp = ORANGE, undercurl = true })
+set(0, 'DiagnosticUnderlineWarn', { sp = c.orange, undercurl = true })
 
 set(0, 'DiagnosticDeprecated', {})
 set(0, 'DiagnosticError', {})
@@ -229,9 +195,9 @@ set(0, 'DiagnosticVirtualTextWarn', {})
 ----------
 -- Diff --
 ----------
-set(0, 'Added', { fg = GREEN, bold = true })
-set(0, 'Changed', { fg = YELLOW, bold = true })
-set(0, 'Removed', { fg = RED, bold = true })
+set(0, 'Added', { fg = c.green, bold = true })
+set(0, 'Changed', { fg = c.yellow, bold = true })
+set(0, 'Removed', { fg = c.red, bold = true })
 set(0, 'DiffAdd', { link = 'Added' })
 set(0, 'DiffChange', { link = 'Changed' })
 set(0, 'DiffDelete', { link = 'Removed' })
@@ -262,7 +228,7 @@ set(0, 'Label', {})
 set(0, 'lCursor', {})
 
 -- Line Numbers
-set(0, 'LineNr', { fg = GREY_700, bold = true })
+set(0, 'LineNr', { fg = c.grey_45 })
 set(0, 'LineNrAbove', { link = 'LineNr' })
 set(0, 'LineNrBelow', { link = 'LineNr' })
 set(0, 'EndOfBuffer', { link = 'LineNr' })
@@ -436,10 +402,10 @@ set(0, 'NvimUnaryOperator', {})
 set(0, 'NvimUnaryPlus', {})
 
 -- Pmenu
-set(0, 'Pmenu', { bg = MANTLE })
-set(0, 'PmenuSel', { bg = DARK_BLUE })
-set(0, 'PmenuSbar', { bg = CRUST })
-set(0, 'PmenuThumb', { bg = GREY_800 })
+set(0, 'Pmenu', { bg = c.mantle })
+set(0, 'PmenuSel', { bg = c.dark_blue })
+set(0, 'PmenuSbar', { bg = c.crust })
+set(0, 'PmenuThumb', {})
 set(0, 'PmenuExtra', {})
 set(0, 'PmenuExtraSel', {})
 set(0, 'PmenuKind', {})
@@ -448,7 +414,7 @@ set(0, 'PmenuMatch', {})
 set(0, 'PmenuMatchSel', {})
 
 set(0, 'PreCondit', {})
-set(0, 'PreProc', { fg = PURPLE })
+set(0, 'PreProc', { fg = c.purple })
 set(0, 'Question', {})
 set(0, 'QuickFixLine', {})
 set(0, 'RedrawDebugClear', {})
@@ -458,8 +424,8 @@ set(0, 'RedrawDebugRecompose', {})
 set(0, 'Repeat', {})
 
 -- Search
-set(0, 'Search', { fg = TEXT, bg = GREY_800 })
-set(0, 'IncSearch', { fg = TEXT, bg = RED_BRIGHT })
+set(0, 'Search', { bg = c.grey_10 })
+set(0, 'IncSearch', { fg = c.text, bg = c.red_bright })
 set(0, 'CurSearch', { link = 'IncSearch' })
 
 set(0, 'SignColumn', {})
@@ -467,14 +433,14 @@ set(0, 'SnippetTabstop', {})
 set(0, 'SpecialChar', {})
 set(0, 'SpecialComment', {})
 set(0, 'Special', {})
-set(0, 'SpecialKey', { fg = RED, bold = true })
+set(0, 'SpecialKey', { fg = c.red, bold = true })
 set(0, 'SpellBad', {})
 set(0, 'SpellCap', {})
 set(0, 'SpellLocal', {})
 set(0, 'SpellRare', {})
 
 -- Status Line
-set(0, 'StatusLine', { bg = GREY_800 })
+set(0, 'StatusLine', { bg = c.grey_15 })
 set(0, 'StatusLineNC', {})
 set(0, 'StatusLineTerm', {})
 set(0, 'StatusLineTermNC', {})
@@ -497,13 +463,13 @@ set(0, 'VertSplit', {})
 
 -- Visual
 -- TODO: Check this after coloring all other elements
-set(0, 'Visual', {  bg = GREY_900 })
-set(0, 'VisualNC', { bg = GREY_900 })
+set(0, 'Visual', {  bg = c.grey_05 })
+set(0, 'VisualNC', {})
 set(0, 'VisualNOS', {})
 
 -- Message
-set(0, 'ErrorMsg', { fg = RED })
-set(0, 'WarningMsg', { fg = YELLOW, bold = true })
+set(0, 'ErrorMsg', { fg = c.red })
+set(0, 'WarningMsg', { fg = c.yellow, bold = true })
 set(0, 'ModeMsg', {})
 set(0, 'MoreMsg', {})
 set(0, 'MsgArea', {})
@@ -530,4 +496,4 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
 ---------------
 -- Nvim Tree --
 ---------------
-set(0, 'NvimTreeFolderIcon', { fg = BLUE })
+set(0, 'NvimTreeFolderIcon', { fg = c.blue })
