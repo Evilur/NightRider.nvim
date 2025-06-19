@@ -139,8 +139,8 @@ set(0, 'String', { fg = c.green })
 set(0, '@string', { link = 'String' })
 set(0, '@string.escape', { fg = c.cyan })
 set(0, '@string.regexp', { fg = c.yellow })
-set(0, '@string.special', { fg = c.cyan })
-set(0, '@string.special.url', { fg = c.blue, undercurl = true })
+set(0, '@string.special', { fg = c.red })
+set(0, '@string.special.url', { fg = c.red })
 
 -- Character
 set(0, 'Character', { fg = c.green })

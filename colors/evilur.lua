@@ -13,19 +13,30 @@ vim.g.colors_name = 'evilur'
 local set = vim.api.nvim_set_hl
 local c = require('night-rider.color')
 
+---------------------
+-- List of modules --
+---------------------
+local modules = {
+    'syntax',
+    'interface',
+    'diagnostic',
+    'nvim-tree',
+    'git',
+}
+
 ------------
 -- Import --
 ------------
-require('night-rider.syntax')
-require('night-rider.interface')
-require('night-rider.diagnostic')
+for _, module in ipairs(modules) do
+    require('night-rider.' .. module)
+end
 
 ---------------------
 -- Clear the cache --
 ---------------------
-package.loaded['night-rider.syntax'] = nil
-package.loaded['night-rider.interface'] = nil
-package.loaded['night-rider.diagnostic'] = nil
+for _, module in ipairs(modules) do
+    package.loaded['night-rider.' .. module] = nil
+end
 
 set(0, 'ColorColumn', { link = 'CursorLine' })
 set(0, 'ComplMatchIns', {})
@@ -100,13 +111,6 @@ set(0, 'Keyword', {})
 set(0, '@label', {})
 set(0, 'Label', {})
 set(0, 'lCursor', {})
-
--- Line Numbers
-set(0, 'LineNr', { fg = c.grey_45 })
-set(0, 'LineNrAbove', { link = 'LineNr' })
-set(0, 'LineNrBelow', { link = 'LineNr' })
-set(0, 'EndOfBuffer', { link = 'LineNr' })
-
 set(0, 'LspCodeLens', {})
 set(0, 'LspCodeLensSeparator', {})
 set(0, '@lsp', {})
@@ -313,12 +317,6 @@ set(0, 'SpellCap', {})
 set(0, 'SpellLocal', {})
 set(0, 'SpellRare', {})
 
--- Status Line
-set(0, 'StatusLine', { bg = c.grey_15 })
-set(0, 'StatusLineNC', {})
-set(0, 'StatusLineTerm', {})
-set(0, 'StatusLineTermNC', {})
-
 set(0, 'StorageClass', {})
 set(0, 'Structure', {})
 set(0, 'Substitute', {})
@@ -344,7 +342,7 @@ set(0, 'VisualNOS', {})
 -- Message
 set(0, 'ErrorMsg', { fg = c.red })
 set(0, 'WarningMsg', { fg = c.yellow, bold = true })
-set(0, 'ModeMsg', {})
+set(0, 'ModeMsg', { fg = c.green })
 set(0, 'MoreMsg', {})
 set(0, 'MsgArea', {})
 set(0, 'MsgSeparator', {})
@@ -353,19 +351,7 @@ set(0, 'Whitespace', {})
 set(0, 'WildMenu', {})
 set(0, 'WinBar', {})
 set(0, 'WinBarNC', {})
-set(0, 'WinSeparator', {})
-
--- Git commit
-vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
-    pattern = 'COMMIT_EDITMSG',
-    callback = function()
-        -- First line longer than 50
-        vim.fn.matchadd('Comment', [[\%1l\%>50c.]])
-
-        -- Any line longer than 72
-        vim.fn.matchadd('Comment', [[\%>72c.]])
-    end
-})
+set(0, 'WinSeparator', { fg = c.grey_20 })
 
 ---------------
 -- Nvim Tree --
