@@ -35,10 +35,8 @@ return {
     yellow_bright       = '#f7ff9e',
     cyan                = '#00d0ff',
     cyan_bright         = '#5cd0ff',
-    blue                = '#297fff',
-    blue_bright         = '#408dff',
-    dark_blue           = '#476aff',
-    dark_blue_bright    = '#5c7bff',
+    blue                = '#0077ff',
+    blue_bright         = '#297fff',
     purple              = '#9252ff',
     purple_bright       = '#9f66ff',
 }
