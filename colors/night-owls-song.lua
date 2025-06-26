@@ -8,10 +8,10 @@ vim.cmd('syntax reset')
 -- General Settings --
 --------------------------
 vim.o.termguicolors = true
-vim.g.colors_name = 'evilur'
+vim.g.colors_name = 'night-owls-song'
 
 local set = vim.api.nvim_set_hl
-local c = require('night-rider.color')
+local c = require('night-owls-song.color')
 
 ---------------------
 -- List of modules --
@@ -28,14 +28,14 @@ local modules = {
 -- Import --
 ------------
 for _, module in ipairs(modules) do
-    require('night-rider.' .. module)
+    require('night-owls-song.' .. module)
 end
 
 ---------------------
 -- Clear the cache --
 ---------------------
 for _, module in ipairs(modules) do
-    package.loaded['night-rider.' .. module] = nil
+    package.loaded['night-owls-song.' .. module] = nil
 end
 
 set(0, 'ColorColumn', { link = 'CursorLine' })

@@ -1,5 +1,5 @@
 local set = vim.api.nvim_set_hl
-local c = require('night-rider.color')
+local c = require('night-owls-song.color')
 
 -- Underline
 set(0, 'DiagnosticUnderlineError', { sp = c.red, undercurl = true })

@@ -1,5 +1,5 @@
 local set = vim.api.nvim_set_hl
-local c = require('night-rider.color')
+local c = require('night-owls-song.color')
 
 -- Normal text
 set(0, 'Normal', { fg = c.text, bg = c.base })
