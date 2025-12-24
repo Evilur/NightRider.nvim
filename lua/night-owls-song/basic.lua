@@ -20,7 +20,7 @@ set(0, 'LineNrBelow', { fg = c.grey_30 })
 set(0, 'CursorLineNr', { fg = c.grey_30 })
 
 set(0, 'SignColumn', {  })
-set(0, 'FoldColumn', { fg = c.grey_40 })
+set(0, 'FoldColumn', { fg = c.grey_30 })
 set(0, 'Folded', { fg = c.grey_40, italic = true })
 
 set(0, 'StatusLine', { bg = c.grey_10 })
