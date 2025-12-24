@@ -35,7 +35,7 @@ set(0, 'Typedef', { fg = c.yellow })
 set(0, 'Special', { fg = c.cyan })
 set(0, 'SpecialChar', { fg = c.cyan })
 set(0, 'Tag', { fg = c.red })
-set(0, 'Delimiter', { fg = c.grey_50 })
+set(0, 'Delimiter', { fg = c.grey_55 })
 
 set(0, 'Underlined', { underline = true })
 set(0, 'Bold', { bold = true })
