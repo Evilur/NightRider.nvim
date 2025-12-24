@@ -15,8 +15,10 @@ vim.g.colors_name = 'night-owls-song'
 ---------------------
 local modules = {
     'basic',
+    'dialog',
     'git',
     'syntax',
+    'visual',
     'treesitter'
 }
 
