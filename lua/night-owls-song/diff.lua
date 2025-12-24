@@ -1,7 +1,7 @@
 local set = vim.api.nvim_set_hl
 local c = require('night-owls-song.color')
 
-DiffAdd
-DiffChange
-DiffDelete
-DiffText
+set(0, 'DiffAdd', { fg = c.green })
+set(0, 'DiffChange', { fg = c.yellow })
+set(0, 'DiffDelete', { fg = c.red })
+set(0, 'DiffText', { })
