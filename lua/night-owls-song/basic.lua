@@ -1,11 +1,11 @@
 local set = vim.api.nvim_set_hl
 local c = require('night-owls-song.color')
 
-set(0, 'Normal', { fg = c.text })
-set(0, 'NormalNC', { fg = c.text })
-set(0, 'NormalFloat', { fg = c.text, bg = c.mantle })
-set(0, 'FloatBorder', { fg = c.text })
-set(0, 'FloatTitle', { fg = c.text })
+set(0, 'Normal', { bg = c.base, fg = c.text })
+set(0, 'NormalNC', { bg = c.base, fg = c.text })
+set(0, 'NormalFloat', { bg = c.base, fg = c.text })
+set(0, 'FloatBorder', { bg = c.base, fg = c.text })
+set(0, 'FloatTitle', { bg = c.base, fg = c.text })
 
 set(0, 'Cursor', { })
 set(0, 'lCursor', { })
