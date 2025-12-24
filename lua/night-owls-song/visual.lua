@@ -1,13 +1,13 @@
 local set = vim.api.nvim_set_hl
 local c = require('night-owls-song.color')
 
-Search
-IncSearch
-CurSearch
-Substitute
+set(0, 'Search', { bg = c.grey_10 })
+set(0, 'IncSearch', { bg = c.red, fg = c.text })
+set(0, 'CurSearch', { bg = c.red, fg = c.text })
+set(0, 'Substitute', { bg = c.purple, fg = c.text })
 
-Visual
-VisualNOS
+set(0, 'Visual', { bg = c.grey_10 })
+set(0, 'VisualNOS', { bg = c.grey_10 })
 
-MatchParen
-QuickFixLine
+set(0, 'MatchParen', { underline = true })
+set(0, 'QuickFixLine', { bg = c.grey_10 })
