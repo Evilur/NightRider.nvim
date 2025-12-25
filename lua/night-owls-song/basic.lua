@@ -32,7 +32,7 @@ set(0, 'TabLine', { fg = c.text, bg = c.mantle })
 set(0, 'TabLineSel', { fg = c.text, bg = c.mantle })
 set(0, 'TabLineFill', { fg = c.text, bg = c.mantle })
 
-set(0, 'Title', { fg = c.green, bold = true })
+set(0, 'Title', { fg = c.green })
 set(0, 'EndOfBuffer', { fg = c.grey_30 })
 set(0, 'Whitespace', { })
 set(0, 'NonText', { fg = c.red })
