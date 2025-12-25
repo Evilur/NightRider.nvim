@@ -18,6 +18,7 @@ local modules = {
     'dialog',
     'diff',
     'git',
+    'pmenu',
     'syntax',
     'visual',
     'treesitter'
