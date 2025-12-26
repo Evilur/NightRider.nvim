@@ -22,7 +22,8 @@ local modules = {
     'pmenu',
     'syntax',
     'visual',
-    'spellcheck'
+    'spellcheck',
+    'treesitter'
 }
 
 ------------
