@@ -60,7 +60,7 @@ set(0, '@function.method', { link = '@function' })
 set(0, '@function.method.call', { link = '@function' })
 
 set(0, '@constructor', { link = '@function' })
-set(0, '@operator', { link = 'Delimiter' })
+set(0, '@operator', { link = 'Statement' })
 
 --------------
 -- Keywords --
